@@ -47,35 +47,29 @@ par(mfrow=c(2,2))
 xmax=length(newdata$Date)
 
 #Top left graph
-plot(x=datetime, y=Global_active_power, type="l",
-     ylab="Global Active Power (kilowatts)",
-     xlab="",
-     main=""
-)
+plot(newdata$Global_active_power,type='l',axes=FALSE,ylab="Global Active Power (kilowatts)",xlab="")
+axis(1, at=0:2*xmax/2,lab=c("Thu","Fri","Sat"))
+axis(2, at=c(0,2,4,6),lab=c(0,2,4,6))
 box("plot")
 
 #Top right graph
-plot(x=datetime, y=Voltage, type='l',
-     ylab="Voltage",
-     xlab="datetime",
-     main=""
-)
+plot(newdata$Voltage,type='l',axes=FALSE,ylab="Voltage",xlab="datetime")
+axis(1, at=0:2*xmax/2,lab=c("Thu","Fri","Sat"))
+axis(2, at=c(234,238,242,246),lab=c(234,238,242,246))
 box("plot")
 
 #Bottom left graph
-plot(datetime, Sub_metering_1, type = "l",
-     ylab="Energy sub metering",
-     xlab=""
-)
-lines(x=datetime, y=data$Sub_metering_2, type = "l", col="red")
-lines(x=datetime, y=data$Sub_metering_3, type = "l", col="blue")
-legend("topright", col=c("black", "red", "blue"), lty=1, lwd=2,  
-       legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")) 
+plot(newdata$Sub_metering_1,type='l',axes=FALSE,ylab="Energy sub metering",xlab="")
+lines(newdata$Sub_metering_2,col="red")
+lines(newdata$Sub_metering_3,col="blue")
+legend(x="topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lty=c(1,1),lwd=c(2.5,2.5,2.5),col=c("black","red","blue"),bty="n",pt.cex=1,cex=0.7)
+axis(1, at=0:2*xmax/2,lab=c("Thu","Fri","Sat"))
+axis(2, at=c(0,10,20,30),lab=c(0,10,20,30))
 box("plot")
 
 #Bottom right graph
-plot(x=datetime, y=Global_reactive_power, type='l',
-     ylab="Global_reactive_power",
-     xlab="datetime")
+plot(newdata$Global_reactive_power,type='l',axes=FALSE,ylab="Global_reactive_power",xlab="datetime")
+axis(1, at=0:2*xmax/2,lab=c("Thu","Fri","Sat"))
+axis(2, at=0:5/10,lab=0:5/10)
 box("plot")
 dev.off()

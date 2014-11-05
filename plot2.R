@@ -46,6 +46,7 @@ attach(newdata)
 
 png(filename="plot2.png", )
 plot(x=datetime, y=Global_active_power, type="l",
+     ylim = c(0,8),
      ylab="Global Active Power (kilowatts)",
      xlab="",
      main=""
