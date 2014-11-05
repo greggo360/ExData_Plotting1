@@ -1,6 +1,6 @@
 
 # Unzip, load and prepare data
-unzip("exdata%2Fdata%2Fhousehold_power_consumption.zip")
+unzip("exdata-data-household_power_consumption.zip")
 data_file <- "household_power_consumption.txt"
 
 # Read first row to get start datetime, column classes, column names
@@ -39,8 +39,6 @@ colnames(data) <- column_names
 
 png(filename="plot1.png")
 hist(data$Global_active_power,
-              ylim = c(0,1300),
-              xlim = c(0,6),
               xlab="Global Active Power (kilowatts)",
               col="Red",
               main="Global Active Power"
